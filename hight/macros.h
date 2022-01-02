@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include <string.h>
-
+#include <string.h>
 #include "portable.h"
 
 #define XCHG(x, y) (t) = (x); (x) = (y); (y) = (t);

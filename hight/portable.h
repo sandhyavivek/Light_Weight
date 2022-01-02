@@ -19,7 +19,7 @@
 
 #ifndef ECRYPT_PORTABLE
 #define ECRYPT_PORTABLE
-
+#include <string.h>
 #include "config.h"
 
 /* ------------------------------------------------------------------------- */

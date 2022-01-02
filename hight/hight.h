@@ -34,11 +34,13 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+
 #include "macros.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 
   void hight128_setkey(void*, void*);
   void hight128_encrypt(void*, void*);

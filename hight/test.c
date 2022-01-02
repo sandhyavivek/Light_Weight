@@ -1,8 +1,10 @@
 
 
 // test unit for hight-64/128
-
+#include<stdlib.h>
 #include "hight.h"
+#include<string.h>
+
 
 void print_bytes(char *s, void *p, int len) {
   int i;
@@ -22,6 +24,7 @@ uint8_t key[16] =
 
 uint8_t cipher[8] = 
 { 0xd8, 0xe6, 0x43, 0xe5, 0x72, 0x9f, 0xce, 0x23 };
+
 
 int main(void)
 {

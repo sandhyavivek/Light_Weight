@@ -8,7 +8,7 @@
  */
 
 /* ------------------------------------------------------------------------- */
-
+#include <string.h>
 #if (defined(ECRYPT_DEFAULT_ROT) && !defined(ECRYPT_MACHINE_ROT))
 
 #define ECRYPT_MACHINE_ROT
