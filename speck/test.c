@@ -20,9 +20,9 @@ uint8_t key64[16]=
   0x18, 0x19, 0x1a, 0x1b };
   
 // 64-bit plain text
-uint8_t plain64[8]=
+uint8_t plain64[8];/*=
 { 0x74, 0x65, 0x72, 0x3b,
-  0x2d, 0x43, 0x75, 0x74 };
+  0x2d, 0x43, 0x75, 0x74 };*/
 
 // 64-bit cipher text  
 uint8_t cipher64[8]=
@@ -67,21 +67,42 @@ uint8_t cipher128b[16]=
 
 int main(void) {
     uint8_t data[32];
-    int     equ;
+    int     equ,k;
+printf("\nEnter the plaintext in 8subtext(SPECK-64/128 ), each expressed in hexa eg: {0x74, 0x65, 0x72, 0x3b,0x2d, 0x43, 0x75, 0x74 }\n");
+   for(k=0;k<8;k++){
+   scanf("%0x" , &plain64[k]);} 
+   memcpy(data, plain64, 8);
+   speck64(key64, data);
+printf("\nCalculated Cipher Text (SPECK-64/128 ) would be as for above eg:{ 0x48, 0xa5, 0x6f, 0x8c,0x8b, 0x02, 0x4e, 0x45 } \n");
+   for(k=0;k<8;k++){
+   printf("%0x\n", data[k]);} 
     
-    memcpy(data, plain64, 8);
-    speck64(key64, data);
-    equ = (memcmp(data, cipher64, 8)==0);
-    printf("SPECK-64/128 test : %s\n", equ ? "OK" : "FAILED");
+    //equ = (memcmp(data, cipher64, 8)==0);
+    //printf("SPECK-64/128 test : %s\n", equ ? "OK" : "FAILED");
 
+printf("\nEnter the plaintext in 16subtext(SPECK-128/128 ), each expressed in hexa \n");
+   for(k=0;k<16;k++){
+   scanf("%0x" , &plain128a[k]);} 
     memcpy(data, plain128a, 16);
     speck128a(key128a, data);
-    equ = (memcmp(data, cipher128a, 16)==0);
-    printf("SPECK-128/128 test : %s\n", equ ? "OK" : "FAILED");
+  
+printf("\nCalculated Cipher Text (SPECK-128/128 ) would be \n");
+   for(k=0;k<16;k++){
+   printf("%0x\n", data[k]);}    
     
+    //equ = (memcmp(data, cipher128a, 16)==0);
+    //printf("SPECK-128/128 test : %s\n", equ ? "OK" : "FAILED");
+
+printf("\nEnter the plaintext in 16subtext(SPECK-128/256 ), each expressed in hexa \n");
+   for(k=0;k<16;k++){
+   scanf("%0x" , &plain128b[k]);}     
     memcpy(data, plain128b, 16);
     speck128b(key128b, data);
-    equ = (memcmp(data, cipher128b, 16)==0);
-    printf("SPECK-128/256 test : %s\n", equ ? "OK" : "FAILED");
+printf("\nCalculated Cipher Text (SPECK-128/256 ) would be \n");
+   for(k=0;k<16;k++){
+   printf("%0x\n", data[k]);}        
+        
+    //equ = (memcmp(data, cipher128b, 16)==0);
+    //printf("SPECK-128/256 test : %s\n", equ ? "OK" : "FAILED");
         
 }
